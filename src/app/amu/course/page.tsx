@@ -1,14 +1,14 @@
 import CourseCard from "@/components/course-card";
 
+export const dynamic = "force-dynamic"; // ⬅️ mark page as always dynamic
+
 async function getCourses() {
   try {
     const response = await fetch(
       `${
         process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
       }/api/course`,
-      {
-        cache: "no-store",
-      }
+      { cache: "no-store" }
     );
 
     if (!response.ok) {
